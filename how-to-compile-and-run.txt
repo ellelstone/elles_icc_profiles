@@ -1,0 +1,87 @@
+1. "make-elles-profiles" is free software. See COPYING for details.
+
+
+2. Compiling the code:
+
+The code as written assumes that you are running Linux. I don't have
+any clue how to compile software under Windows or Mac. The code uses
+LCMS version 2, and has been tested under LittleCMS 2.07 and 2.08.
+
+The code as written requires two folders, "code" and "profiles",
+with the following folder structure:
+
+/your/path/to/code
+/your/path/to/profiles
+
+The following files should be in the folder "/your/path/to/code"
+
+make-elles-profiles.c
+make-elles-profiles.h
+sampleV2.icm
+sampleV2labl.icm
+sampleV2labl.xml
+sampleV2rec709.icm
+sampleV2rec709.xml
+sampleV2srgb.icm
+sampleV2srgb.xml
+sampleV2.xml
+
+To compile the program, cd to "/your/path/to/code".
+
+Here is a sample command line to compile the code:
+
+gcc -g -O0 -Wall -o make-elles-profiles.exe make-elles-profiles.c -llcms2
+
+
+3. Running the code to make the profiles:
+
+Running "make-elles-profiles.exe" requires that the following four "V2 template" ICC profiles files be placed in the folder "/your/path/to/code":
+
+		sampleV2.icm
+		sampleV2labl.icm
+		sampleV2rec709.icm
+		sampleV2srgb.icm
+
+To make the profiles, while still in the folder "/your/path/to/code",
+type "./make-elles-profiles.exe" (without the quotation marks, of course). 
+
+The profiles should appear in the
+folder "/your/path/to/profiles".
+
+
+4. Updating the date and time for the "true V2" ICC profiles:
+
+According to the V4 ICC specifications (http://color.org/specification/ICC1v43_2010-12.pdf),
+ICC profiles are required to have a "date and time" field: 
+
+		7.2.8  Date and time field (bytes 24 to 35)
+		This header field shall contain the date and time that the profile was first created, encoded as a
+		dateTimeNumber.
+
+The LCMS 2.8 API provides a function to retrieve the "date and time" information:
+
+		Accessing profiler header:
+		cmsBool cmsGetHeaderCreationDateTime(cmsHPROFILE hProfile, struct tm *Dest);
+		Returns the date and time when profile was created. This is a field stored in profile header.
+
+LCMS of course writes the "date and time" field to all newly-created ICC profiles. But there doesn't appear to be an LCMS function to set the "date and time" information when overwriting the information in an existing ICC profile.
+
+To make true V2 profiles, my profile-making code uses "template" true V2 ICC profiles. The procedure is to open the "template" profile, write all the required fields to the template ICC profile, and then save the resulting true V2 profile to disk. 
+
+To make true V2 profiles with approximately the correct profile creation date and time, before running the executable "elles-icc-profiles.exe", first:
+
+		1. Use "iccToXml" to create xml files from the true V2 template profiles.
+
+		2. Update the creation date and time information in the profile header information in the resulting xml files:
+
+				example date and time tag in the profile xml file:
+				<CreationDateTime>2016-04-22T21:13:34</CreationDateTime>
+
+		3. Use "iccFromXml" to make new true V2 template profiles with the updated date and time tag.
+
+iccToXml and iccFromXml are part of iccXML (https://sourceforge.net/projects/iccxml/).
+
+iccXML uses libraries from SampleICC (http://www.color.org/sampleicc.xalter, http://sampleicc.sourceforge.net/).
+
+
+

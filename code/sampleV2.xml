@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IccProfile>
+  <Header>
+    <PreferredCMMType>argl</PreferredCMMType>
+    <ProfileVersion>2.20</ProfileVersion>
+    <ProfileDeviceClass>mntr</ProfileDeviceClass>
+    <DataColourSpace>RGB </DataColourSpace>
+    <PCS>XYZ </PCS>
+    <CreationDateTime>2016-04-22T21:13:34</CreationDateTime>
+    <PrimaryPlatform>*nix</PrimaryPlatform>
+    <ProfileFlags EmbeddedInFile="false" UseWithEmbeddedDataOnly="false"/>
+    <DeviceAttributes ReflectiveOrTransparency="reflective" GlossyOrMatte="glossy" MediaPolarity="positive" MediaColour="colour"/>
+    <RenderingIntent>Perceptual</RenderingIntent>
+    <PCSIlluminant>
+      <XYZNumber X="0.96420288" Y="1.00000000" Z="0.82490540"/>
+    </PCSIlluminant>
+    <ProfileCreator>lcms</ProfileCreator>
+  </Header>
+  <Tags>
+    <textType>
+      <TagSignature>cprt</TagSignature>
+      <ASCII><![CDATA[Copyright 2016, Elle Stone (http://ninedegreesbelow.com/), CC-BY-SA 3.0 Unported (https://creativecommons.org/licenses/by-sa/3.0/legalcode).]]></ASCII>
+    </textType>
+    <XYZType>
+      <TagSignature>wtpt</TagSignature>
+      <XYZNumber X="0.00000000" Y="0.00000000" Z="0.00000000"/>
+    </XYZType>
+    <XYZType>
+      <TagSignature>bkpt</TagSignature>
+      <XYZNumber X="0.00000000" Y="0.00000000" Z="0.00000000"/>
+    </XYZType>
+    <XYZType>
+      <TagSignature>rXYZ</TagSignature>
+      <XYZNumber X="0.00000000" Y="0.00000000" Z="0.00000000"/>
+    </XYZType>
+    <XYZType>
+      <TagSignature>gXYZ</TagSignature>
+      <XYZNumber X="0.00000000" Y="0.00000000" Z="0.00000000"/>
+    </XYZType>
+    <XYZType>
+      <TagSignature>bXYZ</TagSignature>
+      <XYZNumber X="0.00000000" Y="0.00000000" Z="0.00000000"/>
+    </XYZType>
+    <curveType>
+      <TagSignature>rTRC</TagSignature>
+      <Curve>
+           0 65535
+      </Curve>
+      <TagSignature>gTRC</TagSignature>
+      <Curve>
+           0 65535
+      </Curve>
+      <TagSignature>bTRC</TagSignature>
+      <Curve>
+           0 65535
+      </Curve>
+    </curveType>
+  </Tags>
+</IccProfile>
