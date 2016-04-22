@@ -620,8 +620,7 @@ cmsHPROFILE V4_profile = cmsCreateRGBProfile ( &whitepoint, &primaries, curve);
 cmsWriteTag(V4_profile, cmsSigCopyrightTag, copyright);
 
 if (strcmp(trc, "-rec709") == 0 ) {
-manufacturer = "Rec709 chromaticities from Recommendation ITU-R BT.709-6 (06/2015), http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.709-6-201506-I!!PDF-E.pdf";
-printf("rec709\n");}
+	manufacturer = "Rec709 chromaticities from Recommendation ITU-R BT.709-6 (06/2015), http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.709-6-201506-I!!PDF-E.pdf";}
 
 cmsMLU *MfgDesc;
 MfgDesc   = cmsMLUalloc(NULL, 1);
