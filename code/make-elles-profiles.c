@@ -469,6 +469,7 @@ for ( i = 0; i < 6; i++ ) {
     else if (i==5) {
       trc="-rec709"; 
       basename="Rec709";
+      manufacturer="Rec709 chromaticities from Recommendation ITU-R BT.709-6 (06/2015), http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.709-6-201506-I!!PDF-E.pdf";
       }
     V4_profile = make_V4_profile (whitepoint, primaries, trc, basename, id, 
                               extension, copyright, manufacturer);
@@ -619,9 +620,6 @@ cmsHPROFILE V4_profile = cmsCreateRGBProfile ( &whitepoint, &primaries, curve);
 
 cmsWriteTag(V4_profile, cmsSigCopyrightTag, copyright);
 
-if (strcmp(trc, "-rec709") == 0 ) {
-	manufacturer = "Rec709 chromaticities from Recommendation ITU-R BT.709-6 (06/2015), http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.709-6-201506-I!!PDF-E.pdf";}
-
 cmsMLU *MfgDesc;
 MfgDesc   = cmsMLUalloc(NULL, 1);
 cmsMLUsetASCII(MfgDesc, "en", "US", manufacturer);
@@ -739,10 +737,6 @@ cmsWriteTag (V2_profile, cmsSigBlueTRCTag, blue_trc);
 
 /* Set copyright, manufacturer, and ModelDesc tags */
 cmsWriteTag(V2_profile, cmsSigCopyrightTag, copyright);
-
-if (strcmp(trc, "-rec709") == 0 ) {
-manufacturer = "Rec709 chromaticities from Recommendation ITU-R BT.709-6 (06/2015), http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.709-6-201506-I!!PDF-E.pdf";
-printf("rec709\n");}
 
 cmsMLU *MfgDesc;
 MfgDesc   = cmsMLUalloc(NULL, 1);
