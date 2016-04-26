@@ -1,4 +1,4 @@
-1. "make-elles-profiles" is free software. See COPYING for details.
+1. "make-elles-profiles" is free software. See LICENSE for details.
 
 
 2. Compiling the code:
