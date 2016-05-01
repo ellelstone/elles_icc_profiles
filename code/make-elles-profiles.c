@@ -581,10 +581,13 @@ cmsWriteTag(profile, cmsSigCopyrightTag, copyright);
 cmsWriteTag (profile, cmsSigMediaWhitePointTag, &media_whitepoint);
 char* profile_version="-V4";
 char *filename = make_file_name (basename, id, profile_version, trc, extension);
+
+char *description_text = filename + 12;
 cmsMLU *description;
 description = cmsMLUalloc(NULL, 1);
-cmsMLUsetASCII(description, "en", "US", filename);
+cmsMLUsetASCII(description, "en", "US", description_text);
 cmsWriteTag(profile, cmsSigProfileDescriptionTag, description);
+
 cmsSaveProfileToFile(profile, filename);
 cmsMLUfree(description);
 
@@ -593,9 +596,11 @@ profile_version="-trueV2";
 filename = make_file_name (basename, id, profile_version, trc, extension);
 cmsSetProfileVersion (profile, 2.2);
 cmsWriteTag (profile, cmsSigMediaBlackPointTag, &media_blackpoint);
+
+description_text = filename + 12;
 description = cmsMLUalloc(NULL, 1);
-cmsMLUsetASCII(description, "en", "US", filename);
-cmsWriteTag(profile, cmsSigProfileDescriptionTag, description);
+cmsMLUsetASCII(description, "en", "US", description_text);
+
 cmsSaveProfileToFile(profile, filename);
 cmsMLUfree(description);
 }
