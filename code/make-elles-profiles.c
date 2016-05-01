@@ -627,9 +627,10 @@ cmsWriteTag(V4_profile, cmsSigDeviceMfgDescTag, MfgDesc);
 
 char* profile_version="-V4";
 char *filename = make_file_name (basename, id, profile_version, trc, extension);
+char *description_text = filename + 12;
 cmsMLU *description;
 description = cmsMLUalloc(NULL, 1);
-cmsMLUsetASCII(description, "en", "US", filename);
+cmsMLUsetASCII(description, "en", "US", description_text);
 cmsWriteTag(V4_profile, cmsSigProfileDescriptionTag, description);
 cmsSaveProfileToFile(V4_profile, filename);
 cmsMLUfree(description);
@@ -745,10 +746,10 @@ cmsWriteTag(V2_profile, cmsSigDeviceMfgDescTag, MfgDesc);
 
 /* Set filename and description */
 filename = make_file_name (basename, id, profile_version, trc, extension);
-
+char *description_text = filename + 12;
 cmsMLU *description;
 description = cmsMLUalloc(NULL, 1);
-cmsMLUsetASCII(description, "en", "US", filename);
+cmsMLUsetASCII(description, "en", "US", description_text);
 cmsWriteTag(V2_profile, cmsSigProfileDescriptionTag, description);
 cmsSaveProfileToFile(V2_profile, filename);
 cmsMLUfree(description);
