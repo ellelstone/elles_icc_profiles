@@ -592,7 +592,7 @@ cmsSaveProfileToFile(profile, filename);
 cmsMLUfree(description);
 
 /* Make V2 gray profile */
-profile_version="-trueV2";
+profile_version="-V2";
 filename = make_file_name (basename, id, profile_version, trc, extension);
 cmsSetProfileVersion (profile, 2.2);
 cmsWriteTag (profile, cmsSigMediaBlackPointTag, &media_blackpoint);
@@ -703,7 +703,7 @@ if (strcmp(trc, "-rec709") == 0 )  sample_profile_filename = "sampleV2rec709.icm
 
 cmsHPROFILE sampleV2 = cmsOpenProfileFromFile(sample_profile_filename, "r");
 
-char *profile_version="-trueV2";
+char *profile_version="-V2";
 char *filename;
 cmsHPROFILE V2_profile = sampleV2;
 cmsSetProfileVersion (V2_profile, 2.2);
